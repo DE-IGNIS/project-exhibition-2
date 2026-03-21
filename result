@@ -1,0 +1,59 @@
+Number of classes: 38
+First 5 classes: ['Tomato___Late_blight', 'Tomato___healthy', 'Grape___healthy', 'Orange___Haunglongbing_(Citrus_greening)', 'Soybean___healthy']
+Found 43456 images belonging to 38 classes.
+Found 10849 images belonging to 38 classes.
+
+Model: "sequential"
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┓
+┃ Layer (type)                    ┃ Output Shape           ┃       Param # ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━┩
+│ conv2d (Conv2D)                 │ (None, 148, 148, 32)   │           896 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ max_pooling2d (MaxPooling2D)    │ (None, 74, 74, 32)     │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ conv2d_1 (Conv2D)               │ (None, 72, 72, 64)     │        18,496 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ max_pooling2d_1 (MaxPooling2D)  │ (None, 36, 36, 64)     │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ conv2d_2 (Conv2D)               │ (None, 34, 34, 128)    │        73,856 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ max_pooling2d_2 (MaxPooling2D)  │ (None, 17, 17, 128)    │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ conv2d_3 (Conv2D)               │ (None, 15, 15, 128)    │       147,584 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ max_pooling2d_3 (MaxPooling2D)  │ (None, 7, 7, 128)      │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ flatten (Flatten)               │ (None, 6272)           │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ dropout (Dropout)               │ (None, 6272)           │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ dense (Dense)                   │ (None, 512)            │     3,211,776 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ dense_1 (Dense)                 │ (None, 38)             │        19,494 │
+└─────────────────────────────────┴────────────────────────┴───────────────┘
+ Total params: 3,472,102 (13.25 MB)
+ Trainable params: 3,472,102 (13.25 MB)
+ Non-trainable params: 0 (0.00 B)
+
+
+Epoch 1/7
+1358/1358 ━━━━━━━━━━━━━━━━━━━━ 1406s 1s/step - accuracy: 0.3445 - loss: 2.3949 - val_accuracy: 0.6786 - val_loss: 1.0552
+Epoch 2/7
+1358/1358 ━━━━━━━━━━━━━━━━━━━━ 1324s 975ms/step - accuracy: 0.7072 - loss: 0.9457 - val_accuracy: 0.8141 - val_loss: 0.5876
+Epoch 3/7
+1358/1358 ━━━━━━━━━━━━━━━━━━━━ 1337s 985ms/step - accuracy: 0.8043 - loss: 0.6040 - val_accuracy: 0.8384 - val_loss: 0.4992
+Epoch 4/7
+1358/1358 ━━━━━━━━━━━━━━━━━━━━ 1328s 978ms/step - accuracy: 0.8559 - loss: 0.4439 - val_accuracy: 0.8911 - val_loss: 0.3253
+Epoch 5/7
+1358/1358 ━━━━━━━━━━━━━━━━━━━━ 1339s 975ms/step - accuracy: 0.8824 - loss: 0.3577 - val_accuracy: 0.9147 - val_loss: 0.2552
+Epoch 6/7
+1358/1358 ━━━━━━━━━━━━━━━━━━━━ 1325s 975ms/step - accuracy: 0.8935 - loss: 0.3214 - val_accuracy: 0.9271 - val_loss: 0.2148
+Epoch 7/7
+1358/1358 ━━━━━━━━━━━━━━━━━━━━ 1326s 976ms/step - accuracy: 0.9063 - loss: 0.2858 - val_accuracy: 0.9279 - val_loss: 0.2301
+
+340/340 ━━━━━━━━━━━━━━━━━━━━ 139s 409ms/step - accuracy: 0.9301 - loss: 0.2212
+
+WARNING:absl:You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. 
+
+Validation Accuracy: 92.62%
+Model saved successfully!
