@@ -1,28 +1,5 @@
 # ProjectExhibition
 
-# Requirements 
-
-# ── Core ML ────────────────────────────────────────────────────
-tensorflow>=2.13.0
-keras>=2.13.0
-
-# ── Data & Utils ───────────────────────────────────────────────
-numpy>=1.24.0
-Pillow>=9.5.0
-scikit-learn>=1.3.0
-
-# ── Visualization ──────────────────────────────────────────────
-matplotlib>=3.7.0
-seaborn>=0.12.0
-
-# ── Kaggle dataset download (optional) ────────────────────────
-kaggle>=1.5.16
-
-# ── Notebook support ───────────────────────────────────────────
-jupyter>=1.0.0
-ipywidgets>=8.0.0
-
-
 # 🌿 Plant Disease Detection — ML Module
 
 EfficientNetB3 fine-tuned on PlantVillage dataset.  
@@ -77,7 +54,7 @@ This avoids catastrophic forgetting while still adapting the feature extractor t
 # 1. Install dependencies
 pip install -r requirements.txt
 
-# 2. Download dataset from Kaggle
+# 2. Downloading dataset from Kaggle
 chmod +x download_dataset.sh
 ./download_dataset.sh ./data
 
@@ -95,34 +72,34 @@ python train.py \
 
 ```
 ml/
-├── train.py                  # Main training script
-├── inference.py              # Inference engine (used by backend)
+├── train.py                  
+├── inference.py              
 ├── requirements.txt
 ├── download_dataset.sh
 ├── notebooks/
 │   └── training_notebook.ipynb
 └── utils/
-    ├── config.py             # Hyperparameters & paths
-    ├── data_loader.py        # Train/val/test split + augmentation
-    ├── class_weights.py      # Balanced class weighting
-    └── metrics.py            # Eval, confusion matrix, plots
+    ├── config.py             
+    ├── data_loader.py        
+    ├── class_weights.py      
+    └── metrics.py            
 ```
 
 ## Output Files (after training)
 
 ```
 models/output/
-├── plant_disease_model_final.h5    # Final model
-├── saved_model/                    # TF SavedModel format
-├── class_indices.json              # Index → class label mapping
-├── training_history.png            # Loss/acc curves
-├── confusion_matrix.png            # Per-class confusion matrix
-├── classification_report.txt       # Precision/recall/F1
+├── plant_disease_model_final.h5    
+├── saved_model/                    
+├── class_indices.json              
+├── training_history.png           
+├── confusion_matrix.png            
+├── classification_report.txt       
 ├── checkpoints/
 │   ├── best_phase1.h5
 │   └── best_phase2.h5
 └── logs/
-    ├── phase1/                     # TensorBoard logs
+    ├── phase1/                     
     └── phase2/
 ```
 
@@ -130,8 +107,8 @@ models/output/
 
 | Metric | Expected |
 |--------|----------|
-| Top-1 Accuracy | ~96–98% |
-| Top-3 Accuracy | ~99%+ |
+| Top-1 Accuracy | ~94–96% |
+| Top-3 Accuracy | ~98%+ |
 
 > Note: Real-world field images will be lower. Consider adding field photos to your training set.
 
@@ -149,10 +126,23 @@ python inference.py \
 ```bash
 tensorboard --logdir ./models/output/logs
 ```
-
 ---
 
-## Next Steps
+# Requirements 
 
-Once training is complete, the `inference.py` module is imported directly by the **FastAPI backend**.  
-Point it to your saved model path — no changes needed.
+# Core ML
+tensorflow>=2.13.0
+keras>=2.13.0
+
+# Data & Utils
+numpy>=1.24.0
+Pillow>=9.5.0
+scikit-learn>=1.3.0
+
+# Visualization
+matplotlib>=3.7.0
+seaborn>=0.12.0
+
+#  Notebook support
+jupyter>=1.0.0
+ipywidgets>=8.0.0
